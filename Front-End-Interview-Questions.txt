@@ -15,7 +15,7 @@ url:"http://davidwalsh.name/event-delegate"
 
 {question:"Explain how this works in JavaScript",
 
-answer:"In typical object-oriented programming, we need a way of identifying and referring to the object that we’re currently working with. this serves the purpose admirably, providing our objects the ability to examine themselves, and point at their own properties.
+answer:"In typical object-oriented programming, we need a way of identifying and referring to the object that we’re currently working with. this serves the purpose, providing our objects the ability to examine themselves, and point at their own properties.
 
  <script type="text/javascript"> 
   var deep_thought = { 
@@ -36,7 +36,75 @@ url:"http://web.archive.org/web/20110725013125/http://www.digital-web.com/articl
 
 
 
-Explain how prototypal inheritance works
+Explain how prototypal inheritance works:
+
+ In a prototypal system, objects inherit from objects. JavaScript, however, lacks an operator that performs that operation. Instead it has a new operator, such that
+
+new f()
+
+produces a new object that inherits from
+
+f.prototype
+
+
+    function object(o) {
+        function F() {}
+        F.prototype = o;
+        return new F();
+    }
+
+
+It takes an old object as a parameter and returns an empty new object that inherits from the old one. If we attempt to obtain a member from the new object, and it lacks that key, then the old object will supply the member. Objects inherit from objects.
+
+url: http://javascript.crockford.com/prototypal.html
+
+
+
+ JavaScript has prototypes which you can augment to fit your own needs. This means that having a single augmented object as the prototype for other objects, which ‘inherit’ all members of the augmented prototype object.
+
+ var Validator = exports.Validator = function() {
+    this._rules = [];
+};
+
+Validator.prototype.addRule = function(rule) {
+    this._rules.push(rule)
+};
+
+Validator.prototype.validate = function(instance) {
+    ...
+};
+
+// specificValidator.js
+var util = require('util');
+
+var SpecificValidator = function() {
+    Validator.call(this);
+};
+
+util.inherits(SpecificValidator, Validator);
+
+SpecificValidator.prototype.filter = function(instance) {
+    ...
+};
+
+// client.js
+var validator = new SpecificValidator();
+
+// Calls function on derived object
+validator.filter( { ... } );        
+
+// Calls function on base object
+validator.validate( { ... } );
+
+Here we have a constructor function named Validator which is the base object for other ‘derived’ objects. We augment the prototype with two functions (addRule and validate). Next we define another constructor function named SpecificValidator. We ‘derive’ this new  constructor function by calling the base constructor function and wiring the prototype by using the util.inherits() function from the Node.js core library.
+
+We have to use the new keyword in order to instantiate a SpecificValidator object. Now we can use the functions that we added to the prototype.
+
+
+url:http://elegantcode.com/2013/03/22/basic-javascript-prototypical-inheritance-vs-functional-inheritance/
+
+
+
 What do you think of AMD vs CommonJS?
 Explain why the following doesn't work as an IIFE: function foo(){ }();.
 What needs to be changed to properly make it an IIFE?

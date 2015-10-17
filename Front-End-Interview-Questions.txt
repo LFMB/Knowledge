@@ -104,14 +104,18 @@ We have to use the new keyword in order to instantiate a SpecificValidator objec
 url:http://elegantcode.com/2013/03/22/basic-javascript-prototypical-inheritance-vs-functional-inheritance/
 
 
-
-What do you think of AMD vs CommonJS?
 Explain why the following doesn't work as an IIFE: function foo(){ }();.
+
 What needs to be changed to properly make it an IIFE?
+
 What's the difference between a variable that is: null, undefined or undeclared?
+
 How would you go about checking for any of these states?
+
 What is a closure, and how/why would you use one?
+
 What's a typical use case for anonymous functions?
+
 How do you organize your code? (module pattern, classical inheritance?)
 What's the difference between host objects and native objects?
 Difference between: function Person(){}, var person = Person(), and var person = new Person()?

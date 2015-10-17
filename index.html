@@ -82,10 +82,13 @@
                         <a href="#page-top"></a>
                     </li>
                     <li class="page-scroll">
+                        <a href="#about">About</a>
+                    </li>
+                    <li class="page-scroll">
                         <a href="#portfolio">Portfolio</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#about">About</a>
+                        <a href="#knowledge">Knowledge</a>
                     </li>
                     <li class="page-scroll">
                         <a href="#contact">Contact</a>
@@ -111,6 +114,25 @@
             </div>
         </div>
     </header>
+
+    <!-- About Section -->
+    <section class="success" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>About</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-lg-offset-2">
+                    <p>Downeast Markets formerly was an attempt to create a modern business blog and investment platform focusing on "smart" development of Maine's economy. This effort was lead by someone who felt comforatable reading town budgets but didn't know how to manipulate JSON Objects, was afraid of all .js files and thought creating a simple to-do list web app would be a mounumental achievement.</p>
+                </div>
+                <div class="col-lg-4">
+                    <p>Fast forward a couple years and that person, <a href="https://www.linkedin.com/in/lucasblom" target="_blank">Lucas Blom</a>, has moved some of his belongings down to NYC and is now part of a boutique consultant firm that specializes in the retail FX market, <a href="http://www.shiftforex.com">Shift Forex</a>. Lucas now routinely creates custom WordPress and Drupal themes for clients, loves LESS and feels quite comfortable coding out asynchronous AJAX calls to grab some JSON data.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Portfolio Grid Section -->
     <section id="portfolio">
@@ -155,26 +177,31 @@
             </div>
         </div>
     </section>
-
-    <!-- About Section -->
-    <section class="success" id="about">
+    <!-- Knowledge Section -->
+    <section id="knowledge">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2>About</h2>
+                <div class="col-lg-12 text-center knowledge-about">
+                    <h2>Knowledge</h2>
+                    <hr>
+                    <p>To help prep for interviews and further strengthen the knowledge base in my free time I do a lot studying. Taking codecademy, code school and egghead.io classes can only take you so far. The following dashboard highlights the progress I have made answering the interview questions found in <a href="https://github.com/h5bp/Front-end-Developer-Interview-Questions" target="_blank">this</a> github repository. </p>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-4 col-lg-offset-2">
-                    <p>Downeast Markets formerly was an attempt to create a modern business blog and investment platform focusing on "smart" development of Maine's economy. This effort was lead by someone who felt comforatable reading town budgets but didn't know how to manipulate JSON Objects, was afraid of all .js files and thought creating a simple to-do list web app would be a mounumental achievement.</p>
-                </div>
-                <div class="col-lg-4">
-                    <p>Fast forward a couple years and that person, <a href="https://www.linkedin.com/in/lucasblom" target="_blank">Lucas Blom</a>, has moved some of his belongings down to NYC and is now part of a boutique consultant firm that specializes in the retail FX market, <a href="http://www.shiftforex.com">Shift Forex</a>. Lucas now routinely creates custom WordPress and Drupal themes for clients, loves LESS and feels quite comfortable coding out asynchronous AJAX calls to grab some JSON data.</p>
+            <div class="row knowledge-dashboard">
+                <div class="col-sm-4 col-xs-12">
+                    <h3>Subject Matter</h3>
+                    <div class="col-xs-10 col-xs-offset-1 subject-type">
+                        course progress
+                    </div>
+                    <label class="number-questions"># of questions</label>
+                    <label class="number-answered"># answered</label>
+                    <button class="btn btn-lg show-material" data-subject="JavaScript">Check out the material</button>
                 </div>
             </div>
+            <div class="row knowledge-showcase">
+                <p class="default-knowledge-showcase-message">this area will display questions and answers for selected subject material</p>
         </div>
     </section>
-
     <!-- Contact Section -->
     <section id="contact">
         <div class="container">
@@ -773,6 +800,8 @@ $(window).resize(countDownSpacing);
 
   
     <script type="text/javascript" src="js/app.js"></script>
+
+    <script type="text/javascript" src="js/knowledgeShowcase.js"></script>
 
 </body>
 

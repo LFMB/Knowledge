@@ -1,10 +1,10 @@
-$.getJSON("data/knowledgeBase.json", function(data){
-	var ansLength;
-$.each(knowledgeBase.JavaScript, function(){
-console.log(this.question);
-ansLength = this.answer.length;
-console.log(ansLength);
+
+$(document).ready(function(){
+	$.get('data/knowledgeBase.json').success(function(data){
+		$.each(data.JavaScript, function(){
+			$('.knowledge-showcase').append($('<p>' + this.question + '</p>' +'<p>' + this.answer + '</p>'));
+		});
+	});
 });
 
-});
 
